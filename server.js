@@ -16,12 +16,12 @@ const PORT = process.env.PORT || 8080;
 // Middleware for data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// For referencing files in the public directory
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
 // ==============================================================================
 // ROUTES
 // ==============================================================================
-
-app.use('/static', express.static(path.join(__dirname, 'public')))
 
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
