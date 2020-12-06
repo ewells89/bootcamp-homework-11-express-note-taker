@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // For referencing files in the public directory
-app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use(express.static('public'))
 
 // ==============================================================================
 // ROUTES

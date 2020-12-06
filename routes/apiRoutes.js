@@ -2,7 +2,7 @@
 // DEPENDENCIES
 // ==============================================================================
 
-const notesData = require("../db/db");
+let notesData = require("../db/db");
 
 
 // ==============================================================================
@@ -30,6 +30,10 @@ module.exports = function(app) {
     });
 
     app.delete("/api/notes/:id", function(req,res) {
+        const deleteNote = notesData.filter( note => note.id != req.params.id);
+        notesData = deleteNote;
+        console.log(deleteNote);
         res.send("Note deleted.");
+        
     });    
 };
