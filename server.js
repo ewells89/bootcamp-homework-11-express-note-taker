@@ -23,6 +23,9 @@ app.use(express.json());
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
+
 // ==============================================================================
 // LISTENER
 // ==============================================================================
@@ -32,5 +35,3 @@ app.listen(PORT, function() {
 });
 
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);

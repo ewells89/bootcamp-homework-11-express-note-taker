@@ -29,5 +29,7 @@ module.exports = function(app) {
         res.json(newNote);
     });
 
-    
+    app.delete("/api/notes/:id", function(req,res) {
+        res.send("Note deleted.");
+    });    
 };
